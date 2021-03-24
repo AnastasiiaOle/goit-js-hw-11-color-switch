@@ -19,20 +19,21 @@ const colors = [
     startBtn: document.querySelector('button[data-action="start"]'),
     stopBtn: document.querySelector('button[data-action="stop"]'),
   };
-  
+
   function changeColor () {
     const color = colors[randomIntegerFromInterval(0, colors.length - 1)];
     document.body.style.background = color;
-  };
+  }
 
-  function handleClickStart (){
+  function handleClickStart () {
       timerId = setInterval(changeColor, 500);
-      ref.startBtn.disabled = true;
-  };
+      refs.startBtn.disabled = true;
+  }
 
-  function handleClickStop (){
+  function handleClickStop () {
     clearInterval(timerId);
-};
+    refs.startBtn.disabled = false;
+}
 
   refs.startBtn.addEventListener('click', handleClickStart);
   refs.stopBtn.addEventListener('click', handleClickStop);
